@@ -1,5 +1,5 @@
 [package]
-name = "ink_types_node_runtime"
+name = "pro_types_node_runtime"
 version = "0.1.0"
 authors = ["Parity Technologies <admin@parity.io>"]
 edition = "2018"
@@ -7,24 +7,24 @@ edition = "2018"
 license = "GPL-3.0"
 readme = "README.md"
 
-repository = "https://github.com/paritytech/ink"
-documentation = "https://github.com/paritytech/ink/wiki"
-homepage = "https://www.parity.io/"
+repository = "https://github.com/tetcoin/pro_types_node_runtime"
+documentation = "https://github.com/tetcoin/pro/wiki"
+homepage = "https://www.tetcoin.org/"
 
 description = "[ink!] Rust based eDSL for writing smart contracts for Substrate"
-keywords = ["wasm", "parity", "webassembly", "blockchain", "edsl"]
+keywords = ["wasm", "tetcoin", "webassembly", "blockchain", "edsl"]
 categories = ["no-std", "embedded"]
 
 include = ["/Cargo.toml", "src/**/*.rs", "/README.md", "/LICENSE"]
 
 [dependencies]
-ink_core = { version = "2", git = "https://github.com/paritytech/ink", tag = "latest-v2", package = "ink_core", default-features = false }
-frame-system = { git = "https://github.com/paritytech/substrate/", package = "frame-system", default-features = false }
-pallet-indices = { git = "https://github.com/paritytech/substrate/", package = "pallet-indices", default-features = false }
-sp-core = { git = "https://github.com/paritytech/substrate/", package = "sp-core", default-features = false }
-sp-io = { git = "https://github.com/paritytech/substrate/", package = "sp-io", default-features = false, features = ["disable_panic_handler", "disable_oom", "disable_allocator"] }
-sp-runtime = { git = "https://github.com/paritytech/substrate/", package = "sp-runtime", default-features = false }
-scale = { package = "parity-scale-codec", version = "1.3", default-features = false, features = ["derive"] }
+pro_core = { version = "2", git = "https://github.com/tetcoin/pro", tag = "latest-v2", package = "ink_core", default-features = false }
+frame-system = { git = "https://github.com/tetcoin/tetcore/", package = "frame-system", default-features = false }
+pallet-indices = { git = "https://github.com/tetcoin/tetcore/", package = "pallet-indices", default-features = false }
+sp-core = { git = "https://github.com/tetcoin/tetcore/", package = "sp-core", default-features = false }
+sp-io = { git = "https://github.com/tetcoin/tetcore/", package = "sp-io", default-features = false, features = ["disable_panic_handler", "disable_oom", "disable_allocator"] }
+sp-runtime = { git = "https://github.com/tetcoin/tetcore/", package = "sp-runtime", default-features = false }
+scale = { package = "tetsy-scale-codec", version = "1.3", default-features = false, features = ["derive"] }
 
 [dependencies.type-metadata]
 git = "https://github.com/type-metadata/type-metadata.git"
@@ -35,20 +35,20 @@ optional = true
 
 
 [dev-dependencies]
-node-runtime = { git = "https://github.com/paritytech/substrate/", package = "node-runtime", features = ["std"] }
+node-runtime = { git = "https://github.com/tetcoin/tetcore/", package = "node-runtime", features = ["std"] }
 
 [features]
 default = ["std"]
 std = [
-    "ink_core/std",
+    "pro_core/std",
     "frame-system/std",
     "pallet-indices/std",
     "sp-core/std",
     "sp-io/std",
     "sp-runtime/std",
 ]
-ink-generate-abi = [
+pro-generate-abi = [
     "std",
     "type-metadata",
-    "ink_core/ink-generate-abi",
+    "pro_core/pro-generate-abi",
 ]
